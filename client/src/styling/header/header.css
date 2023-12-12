@@ -1,0 +1,17 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px grey solid;
+}
+header a {
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+}
+header #logo {
+  font-weight: 700;
+}
+header nav a {
+  margin-left: 20px;
+}/*# sourceMappingURL=header.css.map */
