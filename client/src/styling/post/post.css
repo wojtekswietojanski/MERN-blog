@@ -1,0 +1,21 @@
+.postContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  min-width: 300px;
+  max-width: 1000px;
+  width: 80%;
+  margin: 40px auto;
+  padding: 10px;
+  overflow: hidden;
+  box-shadow: 8px 8px 24px 0px rgb(66, 68, 90);
+}
+.postContainer .fotoContainer {
+  grid-column: span 2;
+  background-image: url("https://bi.im-g.pl/im/11/bb/19/z26983185V,Zachod-slonca-nad-Masywem-Annapurny--Po-kolei-od-l.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.postContainer .textContainer {
+  grid-column: span 3;
+}/*# sourceMappingURL=post.css.map */

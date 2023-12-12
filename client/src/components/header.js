@@ -1,14 +1,15 @@
 import "../styling/header/header.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header>
-      <a href="" id="logo">
+      <Link to="/" id="logo">
         MountainsBlog
-      </a>
+      </Link>
       <nav>
-        <a href="">Login</a>
-        <a href="">Register</a>
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
       </nav>
     </header>
   );

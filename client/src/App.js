@@ -1,13 +1,18 @@
 import "./App.css";
-import Header from "./components/header.js";
-import FotoBanner from "./components/fotoBanner.js";
+import Post from "./components/post.js";
+import Layout from "./Layout.js";
+import { Route, Routes } from "react-router-dom";
+import LoginPage from "./components/loginPage.js";
+import IndexPage from "./components/indexPage.js";
 
 function App() {
   return (
-    <main>
-      <Header></Header>
-      <FotoBanner></FotoBanner>
-    </main>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<IndexPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Route>
+    </Routes>
   );
 }
 
