@@ -4,10 +4,12 @@ const { default: mongoose } = require("mongoose");
 const User = require("./models/User");
 const app = express();
 const bcrypt = require("bcrypt");
+const jsonWebToken = require("jsonwebtoken");
 
 const salt = bcrypt.genSaltSync(10);
+const secretKey = "74hr287hn90s8h2897hsadfa";
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use(express.json());
 
 mongoose.connect(
@@ -25,6 +27,25 @@ app.post("/register", async (req, res) => {
   } catch (exception) {
     res.status(400).json(exception + "błędnie wypełniony formularz");
     console.log(exception + "błędnie wypełniony formularz");
+  }
+});
+
+app.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  const userDoc = await User.findOne({ username });
+  const passwordOk = bcrypt.compareSync(password, userDoc.password);
+
+  if (passwordOk) {
+    jsonWebToken.sign(
+      { username, id: userDoc._id },
+      secretKey,
+      (error, token) => {
+        if (error) throw error;
+        res.cookie("token", token).json("ok");
+      }
+    );
+  } else {
+    res.status(400).json("invalid password/username");
   }
 });
 
