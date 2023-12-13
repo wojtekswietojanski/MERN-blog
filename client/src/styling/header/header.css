@@ -9,6 +9,16 @@ header a {
   font-size: 25px;
   color: black;
 }
+@media (width < 800px) {
+  header a {
+    font-size: 22px;
+  }
+}
+@media (width < 600px) {
+  header a {
+    font-size: 19px;
+  }
+}
 header #logo {
   font-weight: 700;
 }

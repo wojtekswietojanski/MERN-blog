@@ -14,6 +14,16 @@
   justify-content: center;
   align-items: center;
 }
+@media (width < 800px) {
+  #fotoBanner {
+    height: 250px;
+  }
+}
+@media (width < 600px) {
+  #fotoBanner {
+    height: 200px;
+  }
+}
 #fotoBanner::before {
   z-index: -1;
   content: "";

@@ -8,14 +8,27 @@
   margin: 40px auto;
   padding: 10px;
   overflow: hidden;
-  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 10px 0px rgba(66, 68, 90, 0.5);
+  border: 1px grey solid;
+  border-radius: 10px;
+  @media (width < 600px) {
+    height: 200px;
+  }
   .fotoContainer {
     grid-column: span 2;
     background-image: url("https://bi.im-g.pl/im/11/bb/19/z26983185V,Zachod-slonca-nad-Masywem-Annapurny--Po-kolei-od-l.jpg");
     background-size: cover;
     background-position: center;
+    @media (width < 600px) {
+      height: 200px;
+    }
   }
   .textContainer {
     grid-column: span 3;
+    @media (width < 600px) {
+      height: 200px;
+      overflow: scroll;
+      font-size: smaller;
+    }
   }
 }

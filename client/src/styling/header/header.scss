@@ -6,6 +6,12 @@ header {
     text-decoration: none;
     font-size: 25px;
     color: black;
+    @media (width < 800px) {
+      font-size: 22px;
+    }
+    @media (width < 600px) {
+      font-size: 19px;
+    }
   }
   #logo {
     font-weight: 700;

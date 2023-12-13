@@ -8,7 +8,14 @@
   margin: 40px auto;
   padding: 10px;
   overflow: hidden;
-  box-shadow: 8px 8px 24px 0px rgb(66, 68, 90);
+  box-shadow: 8px 8px 10px 0px rgba(66, 68, 90, 0.5);
+  border: 1px grey solid;
+  border-radius: 10px;
+}
+@media (width < 600px) {
+  .postContainer {
+    height: 200px;
+  }
 }
 .postContainer .fotoContainer {
   grid-column: span 2;
@@ -16,6 +23,18 @@
   background-size: cover;
   background-position: center;
 }
+@media (width < 600px) {
+  .postContainer .fotoContainer {
+    height: 200px;
+  }
+}
 .postContainer .textContainer {
   grid-column: span 3;
+}
+@media (width < 600px) {
+  .postContainer .textContainer {
+    height: 200px;
+    overflow: scroll;
+    font-size: smaller;
+  }
 }/*# sourceMappingURL=post.css.map */
