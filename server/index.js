@@ -19,6 +19,18 @@ mongoose.connect(
   "mongodb+srv://wojswiet02:HJqDuKG577QNB8rh@cluster0.mexdfsw.mongodb.net/?retryWrites=true&w=majority"
 );
 
+// Pobieranie postów
+app.get("/posts", async (req, res) => {
+  try {
+    const posts = await Post.find();
+    res.json(posts);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Wystąpił błąd przy pobieraniu postów" });
+  }
+});
+
+// rejestracja
 app.post("/register", async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -35,6 +47,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
+// Logowanie
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
   const userDoc = await User.findOne({ username });
@@ -57,13 +70,16 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// Zapisywanie posta w bazie danych
 app.post("/savePost", async (req, res) => {
-  const { title, content, imgUrl } = req.body;
+  const { title, content, imgUrl, username, todayFormatted } = req.body;
   try {
     const userPost = await Post.create({
       title,
       content,
       imgUrl,
+      username,
+      todayFormatted,
     });
     res.json(userPost);
   } catch (error) {
@@ -72,6 +88,7 @@ app.post("/savePost", async (req, res) => {
   }
 });
 
+// Sprawdzenie zalogowania
 app.get("/profile", (req, res) => {
   const { token } = req.cookies;
   if (token) {

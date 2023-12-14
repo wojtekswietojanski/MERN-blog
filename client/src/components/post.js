@@ -1,20 +1,19 @@
 import "../styling/post/post.css";
 
-const Post = () => {
+const Post = (posts) => {
+  const containerStyle = {
+    backgroundImage: `url(${posts.imgUrl})`,
+  };
+
   return (
     <div className="postContainer">
-      <div className="fotoContainer"></div>
+      <div className="fotoContainer" style={containerStyle}></div>
       <div className="textContainer">
-        <h2>Tytuł</h2>
+        <h2>{posts.title}</h2>
         <p>
-          <b>Autor</b> 01-01-2023
+          <b>{posts.username}</b> {posts.todayFormatted}
         </p>
-        <p className="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-          placeat cupiditate neque exercitationem mollitia architecto illo?
-          Officia cum dolore, earum nulla illo impedit tempora eveniet quo
-          inventore perspiciatis rem repudiandae.
-        </p>
+        <p className="description">{posts.content}</p>
       </div>
     </div>
   );
