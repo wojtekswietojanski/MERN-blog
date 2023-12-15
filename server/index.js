@@ -88,6 +88,20 @@ app.post("/savePost", async (req, res) => {
   }
 });
 
+// wczytywanie pojedyńczego posta
+app.get("/posts/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const singlePost = await Post.findById(id);
+    res.json(singlePost);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "Wystąpił błąd przy pobieraniu pojedynczego posta" });
+  }
+});
+
 // Sprawdzenie zalogowania
 app.get("/profile", (req, res) => {
   const { token } = req.cookies;

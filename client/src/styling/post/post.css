@@ -1,4 +1,9 @@
-.postContainer {
+.postLink {
+  text-decoration: none;
+  color: black;
+}
+.postLink .postContainer {
+  cursor: pointer;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
@@ -13,26 +18,27 @@
   border-radius: 10px;
 }
 @media (width < 600px) {
-  .postContainer {
+  .postLink .postContainer {
     height: 200px;
   }
 }
-.postContainer .fotoContainer {
+.postLink .postContainer .fotoContainer {
   grid-column: span 2;
+  width: 100%;
   background-image: url("https://bi.im-g.pl/im/11/bb/19/z26983185V,Zachod-slonca-nad-Masywem-Annapurny--Po-kolei-od-l.jpg");
   background-size: cover;
   background-position: center;
 }
 @media (width < 600px) {
-  .postContainer .fotoContainer {
+  .postLink .postContainer .fotoContainer {
     height: 200px;
   }
 }
-.postContainer .textContainer {
+.postLink .postContainer .textContainer {
   grid-column: span 3;
 }
 @media (width < 600px) {
-  .postContainer .textContainer {
+  .postLink .postContainer .textContainer {
     height: 200px;
     overflow: scroll;
     font-size: smaller;

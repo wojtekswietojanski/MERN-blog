@@ -6,6 +6,7 @@ import RegisterPage from "./components/registerPage.js";
 import LoginPage from "./components/loginPage.js";
 import PostCreate from "./components/postCreate.js";
 import { UserContextProvider } from "./userContext.js";
+import PostPage from "./components/postPage.js";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/create" element={<PostCreate />} />
+          <Route path="/posts/:id" element={<PostPage />} />
         </Route>
       </Routes>
     </UserContextProvider>
